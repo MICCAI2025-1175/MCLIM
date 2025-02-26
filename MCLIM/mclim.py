@@ -352,7 +352,7 @@ class MCLIM(nn.Module):
         self.clip_loss2 = MatchingLoss(rank=rank, world_size=world_size)
         self.reconstruct_loss = ReconstructLoss(rank=rank, world_size=world_size)
         self.register_buffer('text_tokens', torch.randn(69, 64).long())
-        text_tokens = torch.load('MCLIM/atlas_token_v2.pth', map_location='cpu').detach()
+        text_tokens = torch.load('The path of atlas_base_token', map_location='cpu').detach()
         self.text_tokens.copy_(text_tokens)
         self.scale_factor = nn.Parameter(torch.ones([]) * np.log(1 / 1))
         # self.image_dropout = SpatialDropout(0.75)
